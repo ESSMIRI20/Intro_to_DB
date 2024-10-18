@@ -1,5 +1,7 @@
 import mysql.connector
 
+USE alx_book_store;
+
 myvar = (
     host = "localhost",
     user = "root",
