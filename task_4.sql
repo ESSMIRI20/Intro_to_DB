@@ -8,7 +8,11 @@ mydb = (
 )
 
 mycursor = mydb.cursor()
-mycursor.execute("SHOW COLUMNS FROM BOOKS")
+mycursor.execute(mycursor.execute("""
+        SELECT COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_DEFAULT, EXTRA
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_SCHEMA = 'alx_book_store' AND TABLE_NAME = 'Books';
+    """))
 books_description = mycursor.fetchall()
 
 for i in books_description:
