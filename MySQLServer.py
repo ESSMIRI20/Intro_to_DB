@@ -1,5 +1,4 @@
 import mysql.connector
-from mysql.connector import Error
 
 try:
     mydb = mysql.connector.connect(
@@ -17,7 +16,7 @@ try:
     mycursor.close()
     mydb.close()
 
-except Error as e:
+except mysql.connector.Error as e:
     print(f"Error: {e}")
 
 print("Database 'alx_book_store' created successfully!")
