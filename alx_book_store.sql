@@ -1,6 +1,9 @@
 -- creat the tables
 
-CREATE TABLE IF NOT EXISTS alx_book_store(
+CREATE DATABASE IF NOT EXISTS alx_book_store;
+
+USE alx_book_store;
+
 CREATE TABLE Books (
     book_id INT AUTO_INCREMENT PRIMARY KEY,      
     title VARCHAR(130),                           
@@ -37,5 +40,4 @@ CREATE TABLE Order_Details (
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (book_id) REFERENCES Books(book_id)
 );
-)
 
