@@ -8,7 +8,10 @@ myvar = (
 )
 
 mycur = myvar.cursor()
-mycur.execute("SHOW DATABASES")
+mycur.execute("SHOW TABLES")
+
+for i in tables:
+    print(i[0])
 
 mycur.close()
 myvar.close()
