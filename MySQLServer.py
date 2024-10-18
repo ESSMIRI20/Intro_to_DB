@@ -1,29 +1,24 @@
 import mysql.connector
+from mysql.connector import Error
 
-# Establish a connection to the MySQL server
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",    # Replace with your MySQL username
-    password="1234" # Replace with your MySQL password
-)
+try:
+    mydb = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        password = "1234"
+    )
+    if mydb.is_connected():
+        print("Successfully connected to MySQL server")
 
-# Create a cursor object to execute SQL commands
-mycursor = mydb.cursor()
+    mycursor = mydb.cursor()
 
-# SQL query to check if the database exists
-mycursor.execute("SHOW DATABASES")
+    mycursor.execute("CREATE DATABASE IF NOT EXISTS alx_book_store")
 
-# Fetch all databases and check if 'alx_book_store' exists
-databases = mycursor.fetchall()
-if ('alx_book_store',) not in databases:
-    # If the database doesn't exist, create it
-    mycursor.execute("CREATE DATABASE alx_book_store")
-    print("Database 'alx_book_store' created successfully!")
-else:
-    print("Database 'alx_book_store' already exists.")
+    mycursor.close()
+    mydb.close()
 
-# Close the cursor first
-mycursor.close()
+except Error as e:
+    print(f"Error: {e}")
 
-# Then close the database connection
-mydb.close()
+print("Database 'alx_book_store' created successfully!")
+
