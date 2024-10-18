@@ -8,7 +8,7 @@ mydb = (
 )
 
 mycursor = mydb.cursor()
-mycursor.execute("DESCRIBE BOOKS")
+mycursor.execute("SHOW COLUMNS FROM BOOKS")
 books_description = mycursor.fetchall()
 
 for i in books_description:
