@@ -1,0 +1,14 @@
+import mysql.connector
+
+myvar = (
+    host = "localhost",
+    user = "root",
+    password = "1234",
+    database = "alx_book_store"
+)
+
+mycur = myvar.cursor()
+mycur.execute("SHOW DATABASES")
+
+mycur.close()
+myvar.close()
