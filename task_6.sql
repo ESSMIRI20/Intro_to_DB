@@ -16,7 +16,9 @@ data = [
     (4, "Nehemial Kamolu", "nkamolu@sandtech.com", "126 Happiness Ave.")
     ]
 
-mycursor.execute(sql, data)
+mycursor.executemany(sql, data)
+
+mydb.commit()
 
 mycursor.Close()
 mydb.close()
