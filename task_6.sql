@@ -18,7 +18,7 @@ data = [
 
 mycursor.executemany(sql, data)
 
--- mydb.commit()
+mydb.commit()
 
 mycursor.Close()
 mydb.close()
